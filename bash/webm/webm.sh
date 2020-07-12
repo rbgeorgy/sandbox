@@ -8,4 +8,4 @@ do
     cd ..
 done
 rm videos_from_dvach.txt
-audacious downloads
+vlc downloads
