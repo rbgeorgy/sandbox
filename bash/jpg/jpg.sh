@@ -2,9 +2,10 @@ tmpforgrep=$(echo $1 | sed "s/res\/[0-9]*\.html$//")
 #echo $tmpforgrep
 curl -s $1 | grep -o "image_url=${tmpforgrep}src/[0-9]*/[0-9]*.jpg" | sed "s/image\_url\=//" > t.txt
 boardname=$(echo $tmpforgrep | sed "s/https\:\/\/2ch\.hk\///" | sed "s/\/$//")
-dirname=$(echo $1 | sed "s/https\:\/\/2ch\.hk\/wp\/res\///" | sed "s/\.html$//")
-mkdir $dirname
+dirname=$(echo $1 | sed "s/https\:\/\/2ch\.hk\/${boardname}\/res\///" | sed "s/\.html$//")
 #echo $boardname
+#echo $dirname
+mkdir $dirname
 for file in $(cat t.txt)
 do
     cd $dirname
