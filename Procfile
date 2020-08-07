@@ -1,0 +1,1 @@
+web: python py2.py
